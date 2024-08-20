@@ -10,8 +10,8 @@ const ibmPlexSerif = IBM_Plex_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "FinWallet",
-  description: "FinWallet is a banking platform",
+  title: "Fin Wallet",
+  description: "Fin Wallet is a banking platform",
   icons: {
     icon: "/icons/logo.svg",
   },
