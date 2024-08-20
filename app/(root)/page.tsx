@@ -13,7 +13,7 @@ const Home = () => {
             type="greeting"
             title="Welcome"
             subtext="Access and manage your finances and transactions efficiently."
-            user={loggedIn?.fisrtName || "Guest"}
+            user={loggedIn?.firstName || "Guest"}
           />
 
           <TotalBalanceBox
@@ -25,7 +25,7 @@ const Home = () => {
         recent transactions
       </div>
 
-      <RightSidebar user={loggedIn} transactions={[]} banks={[]} />
+      <RightSidebar user={loggedIn} transactions={[]} banks={[{},{}]} />
     </section>
   );
 };
