@@ -16,7 +16,6 @@ export const signIn = async (data: signInProps) => {
     const response = await account.createEmailPasswordSession(email, password);
 
     return parseStringify(response);
-
   } catch (error) {
     console.error("Error", error);
   }
@@ -67,7 +66,7 @@ export const logoutAccount = async () => {
 
     cookies().delete("appwrite-session");
 
-    await account.deleteSession('current');
+    await account.deleteSession("current");
   } catch (error) {
     return null;
   }
@@ -80,13 +79,13 @@ export const createLinkToken = async (user: User) => {
         client_user_id: user.$id,
       },
       client_name: user.name,
-      products: ['auth'] as Products[],
-      language: 'en',
-      country_codes: ['US'] as CountryCode[],
-    }
+      products: ["auth"] as Products[],
+      language: "en",
+      country_codes: ["US"] as CountryCode[],
+    };
 
     const response = await plaidClient.linkTokenCreate(tokenParams);
-    return parseStringify({linkToken: response.data.link_token})
+    return parseStringify({ linkToken: response.data.link_token });
   } catch (error) {
     console.error("Error", error);
   }
@@ -94,7 +93,6 @@ export const createLinkToken = async (user: User) => {
 
 export const exchangePublicToken = async (data: any) => {
   try {
-
   } catch (error) {
     console.error("Error", error);
   }
