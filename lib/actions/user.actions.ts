@@ -80,7 +80,7 @@ export const signUp = async (userData: SignUpParams) => {
     });
 
     //Parse large obj in server components
-    return parseStringify(newUserAccount);
+    return parseStringify(newUser);
   } catch (error) {
     console.error("Error", error);
   }
