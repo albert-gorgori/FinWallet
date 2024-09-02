@@ -119,10 +119,10 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
     //   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     // );
 
-    // return parseStringify({
-    //   data: account,
+    return parseStringify({
+      data: account,
     //   transactions: allTransactions,
-    // });
+    });
   } catch (error) {
     console.error("An error occurred while getting the account:", error);
   }
