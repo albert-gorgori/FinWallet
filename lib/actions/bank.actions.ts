@@ -12,8 +12,8 @@ import {
 import { plaidClient } from "../plaid";
 import { parseStringify } from "../utils";
 
-// import { getTransactionsByBankId } from "./transaction.actions";
 import { getBanks, getBank } from "./user.actions";
+import { getTransactionsByBankId } from "./transaction.actions";
 
 // Get multiple bank accounts
 export const getAccounts = async ({ userId }: getAccountsProps) => {
@@ -121,7 +121,7 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
 
     return parseStringify({
       data: account,
-    //   transactions: allTransactions,
+      // transactions: allTransactions,
     });
   } catch (error) {
     console.error("An error occurred while getting the account:", error);

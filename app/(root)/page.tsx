@@ -9,7 +9,6 @@ import React from "react";
 const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
   const currentPage = Number(page as string) || 1;
   const loggedIn = await getLoggedInUser();
-  console.log("user: " + JSON.stringify(loggedIn));
   const accounts = await getAccounts({
     userId: loggedIn.$id
   });
@@ -40,7 +39,7 @@ const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
         </header>
         <RecentTransactions
           accounts={accountsData}
-          transactions={accounts?.transactions}
+          transactions={account?.transactions}
           appwriteItemId={accountsData[0]?.appwriteItemId}
           page={currentPage}
         />
@@ -48,7 +47,7 @@ const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
 
       <RightSidebar
         user={loggedIn}
-        transactions={accounts?.transactions}
+        transactions={account?.transactions}
         banks={accountsData?.slice(0, 2)}
       />
     </section>

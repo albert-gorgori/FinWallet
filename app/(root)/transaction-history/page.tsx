@@ -1,9 +1,41 @@
-import React from 'react'
+import HeaderBox from "@/components/HeaderBox";
+import { getAccount, getAccounts } from "@/lib/actions/bank.actions";
+import { getLoggedInUser } from "@/lib/actions/user.actions";
+import React from "react";
 
-const TransactionHistory = () => {
+const TransactionHistory = async ({
+  searchParams: { id, page },
+}: SearchParamProps) => {
+  const currentPage = Number(page as string) || 1;
+  const loggedIn = await getLoggedInUser();
+  const accounts = await getAccounts({
+    userId: loggedIn.$id,
+  });
+
+  if (!accounts) return;
+
+  const accountsData = accounts?.data;
+  const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
+
+  const account = await getAccount({ appwriteItemId });
   return (
-    <div>TransactionHistory</div>
-  )
-}
+    <div className="transaction">
+      <div className="transaction-header">
+        <HeaderBox
+          title="Transaction History"
+          subtext="See your bank details and transactions"
+          type="greeting"
+        />
+      </div>
+      <div className="space-y-6">
+        <div className="transactions-account">
+          <div className="flex flex-col gap-2">
+            <h2></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default TransactionHistory
+export default TransactionHistory;
