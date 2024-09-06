@@ -110,8 +110,7 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
       officialName: accountData.official_name,
       mask: accountData.mask!,
       type: accountData.type as string,
-      subtype: accountData.subtype! as string,
-      appwriteItemId: bank.$id,
+      subtype: accountData.subtype! as string, 
     };
 
     // sort transactions by date such that the most recent transaction is first ...transferTransactions
